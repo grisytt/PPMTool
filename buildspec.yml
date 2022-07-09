@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-version:
+      java: corretto11
+    build:
+      commands:
+        - ./gradlew bootJar
+    post_build:
+      commands:
+        - echo Build completed
+artifacts:
+  files:
+    - target/PPMTool-0.0.1-SNAPSHOT.jar
+    - scripts/*.sh
+    - appspect.yml
+  discard-paths: yes
