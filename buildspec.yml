@@ -3,16 +3,17 @@ version: 0.2
 phases:
   install:
     runtime-version:
-      java: corretto11
+      java: corretto8
     build:
       commands:
-        - ./gradlew bootJar
+        - echo Build started on `date`
+        - mvn test
     post_build:
       commands:
-        - echo Build completed
+        - echo Build completed on `date`
+        - mvn package
 artifacts:
   files:
     - target/PPMTool-0.0.1-SNAPSHOT.jar
-    - scripts/*.sh
     - appspect.yml
   discard-paths: yes
